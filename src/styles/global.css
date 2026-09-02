@@ -1,0 +1,70 @@
+/* src/styles/global.css */
+@import './tokens.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  background: var(--color-parchment);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: var(--text-ui);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  margin: 0;
+  color: var(--color-ink);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.shell {
+  max-width: var(--shell-max);
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+@media (max-width: 640px) {
+  .shell {
+    padding: 0 var(--space-4);
+  }
+}

@@ -1,0 +1,38 @@
+/* src/components/Header.css */
+.site-header {
+  background: var(--color-teal);
+  color: var(--color-parchment);
+  padding: var(--space-6) 0;
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.site-header__title {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.75rem;
+  color: var(--color-parchment);
+  letter-spacing: 0.01em;
+}
+
+.site-header__tagline {
+  margin: 0;
+  font-size: var(--text-meta);
+  color: var(--color-gold-pale);
+  opacity: 0.85;
+}
+
+@media (max-width: 640px) {
+  .site-header {
+    padding: var(--space-4) 0;
+  }
+  .site-header__title {
+    font-size: 1.4rem;
+  }
+}

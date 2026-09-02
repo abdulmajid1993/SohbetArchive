@@ -1,0 +1,59 @@
+/* src/pages/SohbetPage.css */
+.sohbet-page {
+  padding: var(--space-8) 0 var(--space-16);
+  max-width: calc(var(--content-max) + 4rem);
+}
+
+.sohbet-page__back {
+  display: inline-block;
+  font-size: var(--text-meta);
+  color: var(--color-teal);
+  margin-bottom: var(--space-6);
+}
+
+.sohbet-page__title {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--text-display);
+  font-weight: 600;
+  line-height: 1.15;
+  margin-bottom: var(--space-4);
+}
+
+.sohbet-page__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.sohbet-page__topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+}
+
+.sohbet-page__rule {
+  border: none;
+  border-top: 1px solid var(--color-gold);
+  width: 4rem;
+  margin: 0 0 var(--space-8);
+}
+
+.sohbet-page__body {
+  font-family: var(--font-serif);
+  font-size: var(--text-body);
+  line-height: 1.75;
+  max-width: var(--content-max);
+  color: var(--color-ink);
+}
+
+.sohbet-page__body p {
+  margin: 0 0 var(--space-4);
+}
+
+.sohbet-page__status {
+  color: var(--color-ink-soft);
+  padding: var(--space-8) 0;
+}

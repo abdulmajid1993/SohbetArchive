@@ -1,0 +1,52 @@
+/* src/components/SohbetListItem.css */
+.sohbet-row {
+  border-bottom: 1px solid var(--color-line);
+}
+
+.sohbet-row__link {
+  display: block;
+  padding: var(--space-4) 0;
+}
+
+.sohbet-row__link:hover .sohbet-row__title {
+  color: var(--color-teal);
+}
+
+.sohbet-row__title {
+  font-size: var(--text-list-title);
+  font-weight: 500;
+  margin: 0 0 var(--space-2);
+  color: var(--color-ink);
+  transition: color 0.15s ease;
+}
+
+.sohbet-row__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.tag {
+  font-family: var(--font-sans);
+  font-size: var(--text-meta);
+  color: var(--color-ink-soft);
+  background: var(--color-teal-pale);
+  border-radius: var(--radius);
+  padding: 0.15rem 0.6rem;
+}
+
+.tag--date {
+  color: var(--color-teal);
+  background: transparent;
+  border: 1px solid var(--color-line);
+  padding-left: 0;
+  border-left: none;
+  border-top: none;
+  border-bottom: none;
+  border-right: none;
+}
+
+.tag--topic {
+  background: var(--color-gold-pale);
+  color: #7a5f2b;
+}

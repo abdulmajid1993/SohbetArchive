@@ -1,0 +1,47 @@
+/* src/styles/tokens.css
+ *
+ * Design tokens for The Sohbet Archive.
+ *
+ * Palette is built outward from The Inner Way CIC's two brand anchors
+ * (teal + gold) without reproducing its site design -- this app should
+ * feel like a distant, quieter relative: a reading room, not a homepage.
+ */
+
+:root {
+  /* ---- color ---- */
+  --color-teal: #1a5354;       /* structure: header, nav, primary actions */
+  --color-teal-pale: #e4eeec;  /* quiet backgrounds: tags, hover states */
+  --color-gold: #c5a059;       /* sparing accent: active state, rules, dates */
+  --color-gold-pale: #f0e4c8;  /* quiet accent background */
+  --color-parchment: #f6f1e4;  /* page background */
+  --color-ink: #2b2620;        /* body text -- warm near-black */
+  --color-ink-soft: #6b6255;   /* secondary text, metadata */
+  --color-line: #ddd2ba;       /* hairline borders on parchment */
+  --color-surface: #fffdf8;    /* raised surface (cards, panels) on parchment */
+
+  /* ---- type ---- */
+  --font-serif: 'Cormorant Garamond', 'Iowan Old Style', Georgia, serif;
+  --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --text-display: 2.75rem;   /* sohbet title, detail page */
+  --text-h2: 1.75rem;        /* section headings */
+  --text-list-title: 1.25rem;/* sohbet title in list rows */
+  --text-body: 1.2rem;       /* sohbet reading text */
+  --text-ui: 0.95rem;        /* nav, filters, buttons */
+  --text-meta: 0.85rem;      /* dates, tags, counts */
+
+  /* ---- spacing (4px base) ---- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* ---- layout ---- */
+  --content-max: 68ch;
+  --shell-max: 78rem;
+  --radius: 3px;
+}
