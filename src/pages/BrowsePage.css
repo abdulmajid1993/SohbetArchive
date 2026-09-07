@@ -1,5 +1,5 @@
 /* src/pages/BrowsePage.css */
-.browse-page {
+.browse-page__body {
   padding: var(--space-8) 0 var(--space-16);
 }
 
