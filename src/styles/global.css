@@ -60,11 +60,11 @@ ul {
 .shell {
   max-width: var(--shell-max);
   margin: 0 auto;
-  padding: 0 var(--space-6);
+  padding: 0 var(--space-8);
 }
 
 @media (max-width: 640px) {
   .shell {
-    padding: 0 var(--space-4);
+    padding: 0 var(--space-6);
   }
 }
