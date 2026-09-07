@@ -55,6 +55,12 @@
   padding: var(--space-8) 0;
 }
 
+.browse-page__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-6);
+}
+
 .browse-page__load-more {
   display: block;
   margin: var(--space-6) auto 0;
