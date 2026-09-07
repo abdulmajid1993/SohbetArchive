@@ -55,6 +55,19 @@ export function applyFilters(sohbets, { year, location, language, category }) {
   });
 }
 
+export function topCategories(sohbets, count) {
+  const counts = new Map();
+  for (const s of sohbets) {
+    for (const c of s.categories) {
+      counts.set(c, (counts.get(c) || 0) + 1);
+    }
+  }
+  return [...counts.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, count)
+    .map(([category]) => category);
+}
+
 export function sortSohbets(sohbets, sortBy) {
   const copy = [...sohbets];
   switch (sortBy) {
