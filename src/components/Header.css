@@ -17,7 +17,7 @@
 }
 
 .site-header__logo {
-  height: 48px;
+  height: 64px;
   width: auto;
   display: block;
   flex-shrink: 0;
@@ -42,7 +42,7 @@
 
 @media (max-width: 640px) {
   .site-header__logo {
-    height: 36px;
+    height: 54px;
   }
   .site-header__title {
     font-size: 1.4rem;
