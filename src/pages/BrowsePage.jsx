@@ -1,5 +1,5 @@
 // src/pages/BrowsePage.jsx
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useSohbetIndex } from '../hooks/useSohbetIndex';
 import { collectFacets, applyFilters, sortSohbets } from '../utils/filters';
@@ -10,30 +10,27 @@ import Hero from '../components/Hero';
 import './BrowsePage.css';
 
 const PAGE_SIZE = 40;
+const DEFAULT_SORT = 'date-desc';
 
 export default function BrowsePage() {
   const { data, loading, error } = useSohbetIndex();
   const [searchParams, setSearchParams] = useSearchParams();
-  const [filters, setFilters] = useState({
-    category: searchParams.get('category'),
-    year: null,
-    location: null,
-    language: null,
-  });
-  const [sortBy, setSortBy] = useState('date-desc');
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
   const [filtersOpen, setFiltersOpen] = useState(false);
 
-  // Keep the category filter in sync if someone arrives via a topic link
-  // (e.g. from a sohbet's detail page) after the browse page is already mounted.
-  useEffect(() => {
-    const fromUrl = searchParams.get('category');
-    if (fromUrl && fromUrl !== filters.category) {
-      setFilters((f) => ({ ...f, category: fromUrl }));
-      setVisibleCount(PAGE_SIZE);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchParams]);
+  // Filters and sort live entirely in the URL (not component state), so they
+  // survive navigating to a sohbet and back -- a fresh mount just reads
+  // whatever's already in the query string instead of resetting to defaults.
+  const filters = useMemo(
+    () => ({
+      category: searchParams.get('category'),
+      year: searchParams.get('year'),
+      location: searchParams.get('location'),
+      language: searchParams.get('language'),
+    }),
+    [searchParams]
+  );
+  const sortBy = searchParams.get('sort') || DEFAULT_SORT;
 
   const facets = useMemo(() => (data ? collectFacets(data) : null), [data]);
   const filtered = useMemo(
@@ -42,14 +39,22 @@ export default function BrowsePage() {
   );
   const visible = filtered.slice(0, visibleCount);
 
-  function handleFilterChange(next) {
-    setFilters(next);
-    setVisibleCount(PAGE_SIZE);
-    if (next.category) {
-      setSearchParams({ category: next.category });
-    } else {
-      setSearchParams({});
+  function updateParams(patch) {
+    const params = new URLSearchParams(searchParams);
+    for (const [key, value] of Object.entries(patch)) {
+      if (value) params.set(key, value);
+      else params.delete(key);
     }
+    setSearchParams(params);
+  }
+
+  function handleFilterChange(next) {
+    updateParams(next);
+    setVisibleCount(PAGE_SIZE);
+  }
+
+  function handleSortChange(next) {
+    updateParams({ sort: next === DEFAULT_SORT ? null : next });
   }
 
   if (loading) {
@@ -100,7 +105,7 @@ export default function BrowsePage() {
             <div className="browse-page__sort">
               <label>
                 Sort by{' '}
-                <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+                <select value={sortBy} onChange={(e) => handleSortChange(e.target.value)}>
                   <option value="date-desc">Newest first</option>
                   <option value="date-asc">Oldest first</option>
                   <option value="title">Title, A–Z</option>
