@@ -35,7 +35,7 @@ export default function SohbetPage() {
       <h1 className="sohbet-page__title">{data.title}</h1>
 
       <div className="sohbet-page__meta">
-        <span className="tag tag--date">{formatDate(data.date)}</span>
+        <span className="tag">{formatDate(data.date)}</span>
         <span className="tag">{data.location || 'Location unrecorded'}</span>
         <span className="tag">{languageLabel(data.language)}</span>
       </div>
@@ -43,7 +43,7 @@ export default function SohbetPage() {
       {data.categories.length > 0 && (
         <div className="sohbet-page__topics">
           {data.categories.map((c) => (
-            <Link key={c} to={`/?category=${encodeURIComponent(c)}`} className="tag tag--topic">
+            <Link key={c} to={`/?category=${encodeURIComponent(c)}`} className="tag">
               {c}
             </Link>
           ))}
