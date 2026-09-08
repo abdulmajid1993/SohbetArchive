@@ -57,27 +57,24 @@ export default function Hero({ sohbets }) {
         </div>
 
         <div className="hero__links">
-          <div>
+          <Link to={`/sohbet/${featured.slug}`} className="hero__featured-card">
             <p className="hero__label">Begin with</p>
-            <Link to={`/sohbet/${featured.slug}`} className="hero__featured-title">
-              {featured.title}
-            </Link>
+            <p className="hero__featured-title">{featured.title}</p>
             <p className="hero__featured-meta">
               {formatDate(featured.date)} &middot; {featured.location || 'Unrecorded'} &middot;{' '}
               {languageLabel(featured.language)}
             </p>
-          </div>
+          </Link>
 
           <div>
             <p className="hero__label">Or explore a subject</p>
-            <p className="hero__subjects">
-              {subjects.map((c, i) => (
-                <span key={c}>
-                  <Link to={`/?category=${encodeURIComponent(c)}`}>{c}</Link>
-                  {i < subjects.length - 1 && <span className="hero__subjects-sep"> &middot; </span>}
-                </span>
+            <div className="hero__subjects">
+              {subjects.map((c) => (
+                <Link key={c} to={`/?category=${encodeURIComponent(c)}`} className="hero__subject-pill">
+                  {c}
+                </Link>
               ))}
-            </p>
+            </div>
           </div>
         </div>
       </div>
