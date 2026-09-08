@@ -3,6 +3,13 @@
 export const UNDATED = '__undated__';
 export const UNCATEGORISED = 'Uncategorised';
 
+// Some locations are specific venues/cities within a country that's also its
+// own location value. Filtering by the country should pull in its cities too,
+// while each city stays separately selectable for its own sohbets.
+const LOCATION_GROUPS = {
+  UK: ['UK', 'London', 'Sheffield', 'Glastonbury', 'Peckham Mosque'],
+};
+
 export function getYear(sohbet) {
   return sohbet.date ? sohbet.date.slice(0, 4) : UNDATED;
 }
@@ -42,7 +49,11 @@ export function collectFacets(sohbets) {
 export function applyFilters(sohbets, { year, location, language, category }) {
   return sohbets.filter((s) => {
     if (year && getYear(s) !== year) return false;
-    if (location && (s.location || UNDATED) !== location) return false;
+    if (location) {
+      const loc = s.location || UNDATED;
+      const group = LOCATION_GROUPS[location];
+      if (group ? !group.includes(loc) : loc !== location) return false;
+    }
     if (language && (s.language || 'unknown') !== language) return false;
     if (category) {
       if (category === UNCATEGORISED) {
