@@ -2,17 +2,29 @@
 .site-header {
   background: var(--color-teal);
   color: var(--color-parchment);
-  padding: var(--space-6) 0;
+  padding: var(--space-4) 0;
 }
 
 .site-header__inner {
   display: flex;
-  align-items: baseline;
-  gap: var(--space-4);
-  flex-wrap: wrap;
+}
+
+.site-header__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--color-parchment);
+}
+
+.site-header__logo {
+  height: 48px;
+  width: auto;
+  display: block;
+  flex-shrink: 0;
 }
 
 .site-header__title {
+  display: block;
   font-family: var(--font-serif);
   font-style: italic;
   font-weight: 600;
@@ -29,8 +41,8 @@
 }
 
 @media (max-width: 640px) {
-  .site-header {
-    padding: var(--space-4) 0;
+  .site-header__logo {
+    height: 36px;
   }
   .site-header__title {
     font-size: 1.4rem;
