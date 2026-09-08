@@ -43,7 +43,7 @@ export default function SearchBox() {
       <input
         type="search"
         className="search-box__input"
-        placeholder="Search the full text of every sohbet…"
+        placeholder="Search sohbets…"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         onFocus={() => results.length > 0 && setOpen(true)}
