@@ -60,5 +60,5 @@ ul {
 .shell {
   max-width: var(--shell-max);
   margin: 0 auto;
-  padding: 0 clamp(1.25rem, 5vw, 4rem);
+  padding: 0 clamp(1.5rem, 8vw, 6rem);
 }
