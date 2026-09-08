@@ -8,7 +8,7 @@
 
 .sohbet-tile:hover {
   border-color: var(--color-teal);
-  box-shadow: 0 8px 24px rgba(43, 38, 32, 0.1);
+  box-shadow: 0 8px 24px rgba(38, 40, 31, 0.1);
   transform: translateY(-2px);
 }
 
@@ -58,5 +58,5 @@
 
 .tag--topic {
   background: var(--color-gold-pale);
-  color: #7a5f2b;
+  color: #5e3c12; /* SacredTexts' --ochre-deep, for contrast against gold-pale */
 }
