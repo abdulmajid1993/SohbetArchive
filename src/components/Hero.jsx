@@ -1,12 +1,29 @@
 // src/components/Hero.jsx
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { topCategories } from '../utils/filters';
 import { formatDate, languageLabel } from '../utils/format';
-import shaykhNazimPhoto from '../assets/shaykh-nazim.jpg';
+import heroPhoto1 from '../assets/hero/photo-1.jpg';
+import heroPhoto2 from '../assets/hero/photo-2.jpg';
+import heroPhoto3 from '../assets/hero/photo-3.jpg';
+import heroPhoto4 from '../assets/hero/photo-4.jpg';
+import heroPhoto5 from '../assets/hero/photo-5.jpg';
+import heroPhoto6 from '../assets/hero/photo-6.jpg';
 import './Hero.css';
 
+const HERO_PHOTOS = [heroPhoto1, heroPhoto2, heroPhoto3, heroPhoto4, heroPhoto5, heroPhoto6];
+const PHOTO_INTERVAL_MS = 6000;
+
 export default function Hero({ sohbets }) {
+  const [photoIndex, setPhotoIndex] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setPhotoIndex((i) => (i + 1) % HERO_PHOTOS.length);
+    }, PHOTO_INTERVAL_MS);
+    return () => clearInterval(id);
+  }, []);
+
   const featured = useMemo(() => {
     const wellFormed = sohbets.filter((s) => s.date && s.language === 'en' && s.location);
     const pool = wellFormed.length > 0 ? wellFormed : sohbets;
@@ -26,11 +43,17 @@ export default function Hero({ sohbets }) {
               Lefke, Cyprus &mdash; in English and German, searchable in full text.
             </p>
           </div>
-          <img
-            className="hero__photo"
-            src={shaykhNazimPhoto}
-            alt="Maulana Sheikh Nazim"
-          />
+          <div className="hero__photo-frame">
+            {HERO_PHOTOS.map((src, i) => (
+              <img
+                key={src}
+                className={`hero__photo${i === photoIndex ? ' is-active' : ''}`}
+                src={src}
+                alt="Maulana Sheikh Nazim"
+                aria-hidden={i === photoIndex ? undefined : true}
+              />
+            ))}
+          </div>
         </div>
 
         <div className="hero__links">
