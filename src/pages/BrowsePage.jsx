@@ -6,6 +6,7 @@ import { collectFacets, applyFilters, sortSohbets } from '../utils/filters';
 import FilterBar from '../components/FilterBar';
 import SohbetListItem from '../components/SohbetListItem';
 import Hero from '../components/Hero';
+import Featured from '../components/Featured';
 import './BrowsePage.css';
 
 const PAGE_SIZE = 40;
@@ -76,8 +77,10 @@ export default function BrowsePage() {
 
   return (
     <div className="browse-page">
-      <Hero sohbets={data} />
+      <Hero sohbetCount={data.length} />
       <div className="shell browse-page__body">
+        <Featured sohbets={data} />
+
         <button
           type="button"
           className="browse-page__filter-toggle"
