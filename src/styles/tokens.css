@@ -45,5 +45,10 @@
   /* ---- layout ---- */
   --content-max: 68ch;
   --shell-max: 78rem;
-  --radius: 3px;
+
+  /* Radius scale matches SacredTexts: 14px cards/tiles, 12px inputs,
+     999px pills (buttons, chips), 50% circles. */
+  --radius: 14px;
+  --radius-sm: 12px;
+  --radius-pill: 999px;
 }
