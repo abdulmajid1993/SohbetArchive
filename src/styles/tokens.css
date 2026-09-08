@@ -20,8 +20,8 @@
   --color-surface: #fffdf8;    /* raised surface (cards, panels) on parchment */
 
   /* ---- type ---- */
-  --font-serif: 'Cormorant Garamond', 'Iowan Old Style', Georgia, serif;
-  --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: 'Crimson Pro', 'Iowan Old Style', Georgia, serif;
+  --font-sans: 'Karla', -apple-system, BlinkMacSystemFont, sans-serif;
 
   --text-display: 2.75rem;   /* sohbet title, detail page */
   --text-h2: 1.75rem;        /* section headings */
