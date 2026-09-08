@@ -5,7 +5,6 @@ import { useSohbetIndex } from '../hooks/useSohbetIndex';
 import { collectFacets, applyFilters, sortSohbets } from '../utils/filters';
 import FilterBar from '../components/FilterBar';
 import SohbetListItem from '../components/SohbetListItem';
-import SearchBox from '../components/SearchBox';
 import Hero from '../components/Hero';
 import './BrowsePage.css';
 
@@ -79,16 +78,13 @@ export default function BrowsePage() {
     <div className="browse-page">
       <Hero sohbets={data} />
       <div className="shell browse-page__body">
-        <div className="browse-page__toolbar">
-          <SearchBox />
-          <button
-            type="button"
-            className="browse-page__filter-toggle"
-            onClick={() => setFiltersOpen((v) => !v)}
-          >
-            {filtersOpen ? 'Hide filters' : 'Filters'}
-          </button>
-        </div>
+        <button
+          type="button"
+          className="browse-page__filter-toggle"
+          onClick={() => setFiltersOpen((v) => !v)}
+        >
+          {filtersOpen ? 'Hide filters' : 'Filters'}
+        </button>
 
         <div className="browse-page__layout">
           <aside className={`browse-page__filters ${filtersOpen ? 'is-open' : ''}`}>

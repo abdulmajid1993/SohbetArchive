@@ -11,6 +11,16 @@
   margin-bottom: var(--space-12);
 }
 
+.hero__search {
+  max-width: 32rem;
+  margin-bottom: var(--space-8);
+}
+
+.hero__search .search-box__input {
+  padding: var(--space-3) var(--space-4);
+  font-size: 1rem;
+}
+
 .hero__headline {
   font-style: italic;
   font-size: var(--text-display);

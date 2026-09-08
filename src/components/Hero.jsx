@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { topCategories } from '../utils/filters';
 import { formatDate, languageLabel } from '../utils/format';
+import SearchBox from './SearchBox';
 import heroPhoto1 from '../assets/hero/photo-1.jpg';
 import heroPhoto2 from '../assets/hero/photo-2.jpg';
 import heroPhoto3 from '../assets/hero/photo-3.jpg';
@@ -54,6 +55,10 @@ export default function Hero({ sohbets }) {
               />
             ))}
           </div>
+        </div>
+
+        <div className="hero__search">
+          <SearchBox />
         </div>
 
         <div className="hero__links">
